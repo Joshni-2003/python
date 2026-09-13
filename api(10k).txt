@@ -1,0 +1,27 @@
+apis:---------------
+api-application programming interface
+we need to use them 
+we need to write a code in python to fetch data of an api
+multiple conditions and getting data on those conditions
+
+
+key:wertykl567fghjklwertyjklxcvbnm
+
+
+api:free
+api:paid 
+
+api:public
+api:private
+
+
+free:---  public:----
+
+products:  fakestoreapi,dummyjson,jsonplaceholder
+food:       dummyjson
+
+
+
+getting the data from api
+
+
