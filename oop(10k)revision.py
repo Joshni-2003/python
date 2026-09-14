@@ -168,6 +168,132 @@ obj.Shows()
 
 
 
+# multi-level inheritance
+
+
+class order:
+    def __init__(self,oid,op):
+        # print(oid,op)
+        self.id=oid
+        self.opay=op
+        # print(self.id)
+        # print(self.opay)
+        print(self.id,self.opay)
+    def show2(self):
+        print(f"payment method is {self.opay}")
+        
+class onlineorder(order):
+    def __init__(self,orderid,orderpayment,orderitems):
+
+        # print(orderid,orderpayment,orderitems)
+        self.orderid=orderid
+        self.op=orderpayment
+        self.i=orderitems
+        # print(self.orderid)
+        # print(self.op)
+        # print(self.i)
+        print(self.orderid,self.op,self.i)
+        super().__init__(orderid,orderpayment)
+    def show1(self):
+        print(f"{self.orderid} with order items are {self.items}")
+        super().show2()
+class fastorder(onlineorder):
+    def __init__(self,id,name,items,payment):
+        # print(id,name,items,payment)
+        self.id=id
+        self.name=name
+        self.items=items
+        self.payment=payment
+        print(self.id,self.name,self.items,self.payment)
+    
+        super().__init__(id,payment,items)
+    # def show(self):
+    #         print("order successfull")
+        super().show1()
+
+obj=fastorder(101,"joshni",["mango","apple","banana"],"upi")
+# obj.show()
+
+
+# multiple inheritance:---more than one parentt
+
+class mapsystem:
+    def __init__(self,na,add,dr):
+        self.na=na
+        self.add=add
+        self.dres=dr
+    def mapdetails(self):
+        pass
+class paymentsystem:
+    def __init__(self,nam,addr,payment):
+        self.nam=nam
+        self.addr=addr
+        self.payment=payment
+    def paymentdetails(self):
+        pass
+class deliveryperson(mapsystem,paymentsystem):
+    def __init__(self,n,d,a,p):
+        self.name=n
+        self.dress=d
+        self.address=a
+        self.payment=p
+        print(self.name,self.dress,self.address,self.payment)
+        mapsystem.__init__(self,n,a,d)
+        paymentsystem.__init__(self,n,a,p)
+    def orderdelivered(self):
+        print(f"{self.name} ordered {self.dress} dress with {self.payment} method")
+
+
+obj=deliveryperson("joshni","anarkali","tiruvuru","upi")
+obj.orderdelivered()
+
+
+
+
+
+# Another example:
+
+class mapsystem:
+  def __init__(self,n,l):
+    # print(n)
+    # print(l)
+    # self.name=n
+    # self.loc=l
+    # print(self.name)
+    # print(self.loc)
+    print(f"{self.n} ordered to the location {self.l}")
+  def show1(self):
+    print(f"The order comes to {self.l} address")
+class paymentsystem:
+  def __init__(self,n,p):
+    # print(n)
+    # print(p)
+    print(f"{self.n} proceed the payment through {self.p} method")
+  def show2(self):
+    print(f"The method is {self.p}")
+class deliveryperson(mapsystem,paymentsystem):
+  def __init__(self,name,location,payment,dress):
+    # print(name)
+    self.n=name
+    self.l=location
+    self.p=payment
+    self.a=dress
+    print(self.n,self.l,self.p,self.a)
+    mapsystem.__init__(self,name,location)
+    paymentsystem.__init__(self,name,payment)
+    # super().show1()
+  
+    # mapsystem.show1(self)
+    # paymentsystem.show2(self)
+    super().show1()
+    super().show2()
+  def show3(self):
+    print(f"{self.n} receives the order successfully")
+    
+    
+obj=deliveryperson("joshni","tvr","upi","lehanga")
+obj.show3()
+
 
 
 
